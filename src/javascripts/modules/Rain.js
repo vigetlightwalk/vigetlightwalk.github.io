@@ -2,8 +2,8 @@ import { REED_COUNT, PIXEL_COUNT } from './constants'
 import Effect from './Effect'
 
 class Drop {
-  constructor(startTime, height, startPosition, velocity) {
-    this.configure(startTime, height, startPosition, velocity)
+  constructor(startTime, height, startPosition, velocity, color) {
+    this.configure(startTime, height, startPosition, velocity, color)
   }
 
   configure(startTime, height, startPosition, velocity, color) {
@@ -73,9 +73,10 @@ export default class Rain extends Effect {
   }
 
   generateColor() {
-    return this.possibleColors[this.random(0, 11)]
+    // return this.possibleColors[this.random(0, 11)]
     // return [this.random(0, 255), this.random(0, 255), this.random(0, 255)]
     // return [0, 255, this.random(0, 255)]
+    return [255, 0, this.random(0, 255)]
   }
 
   possibleColors = [
