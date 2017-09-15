@@ -1,18 +1,21 @@
 import { REED_COUNT, PIXEL_COUNT } from './constants'
-import Rain from './Rain'
-import Wave from './Wave'
+import RainUp from './RainUp'
+import RainDown from './RainDown'
+import WaveUp from './WaveUp'
+import WaveDown from './WaveDown'
+import Breathe from './Breathe'
 
 export default class Simulator {
   constructor() {
     this.variables()
-    this.backgroundEffect = new Wave()
-    this.foregroundEffect = new Rain()
+    this.backgroundEffect = new Breathe
+    this.foregroundEffect = new RainDown()
 
     setInterval(() => {
       this.backgroundEffect.update()
       this.foregroundEffect.update()
       this.setLedMatrix()
-    }, 10)
+    }, 1000/60)
   }
 
   variables() {
@@ -21,7 +24,6 @@ export default class Simulator {
       this[`reed${x}`] = reed.querySelectorAll('.reed__light')
     })
     this.leds = []
-    // this.activeClass = '-is-active'
   }
 
   loadLedMatrix() {
@@ -29,10 +31,11 @@ export default class Simulator {
       for (let y = 0; y < PIXEL_COUNT; y++) {
         if (this.leds[x][y]) {
           this[`reed${x}`][y].style.backgroundColor = `rgb(${this.leds[x][y][0]},${this.leds[x][y][1]},${this.leds[x][y][2]}`
+          this[`reed${x}`][y].style.boxShadow = `0 0 10px rgb(${this.leds[x][y][0]},${this.leds[x][y][1]},${this.leds[x][y][2]}`
         } else {
           this[`reed${x}`][y].style.backgroundColor = 'transparent'
+          this[`reed${x}`][y].style.boxShadow = 'none'
         }
-        // this[`reed${x}`][y].classList[this.leds[x][y] ? 'add' : 'remove'](this.activeClass)
       }
     }
   }

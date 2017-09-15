@@ -16,17 +16,15 @@ class Drop {
   }
 
   update(currentTime) {
-    // this.position = this.startPosition - (currentTime - this.startTime) * this.velocity
-    this.position = this.startPosition + (currentTime - this.startTime) * this.velocity
+    this.position = this.startPosition - (currentTime - this.startTime) * this.velocity
   }
 
   surrounds(y) {
-    // return this.position >= y && (this.position - this.height) < y
-    return this.position <= y && (this.position + this.height) > y
+    return this.position >= y && (this.position - this.height) < y
   }
 }
 
-export default class Rain extends Effect {
+export default class RainUp extends Effect {
   constructor() {
     super()
     const currentTime = Date.now()
@@ -34,8 +32,7 @@ export default class Rain extends Effect {
 
     for (let i = 0; i < REED_COUNT; i++){
       const height = this.random(3, 8);
-      // const startPosition = this.random(PIXEL_COUNT, PIXEL_COUNT * 2);
-      const startPosition = this.random(PIXEL_COUNT * -2, 0);
+      const startPosition = this.random(PIXEL_COUNT, PIXEL_COUNT * 2);
       const velocity = this.random(30, 60) * 1.0 / 1000;
       const color = this.generateColor()
       this.drops[i] = new Drop(currentTime, height, startPosition, velocity, color)
@@ -46,8 +43,7 @@ export default class Rain extends Effect {
     const currentTime = Date.now()
     for (let i = 0; i < this.drops.length; i++) {
       this.drops[i].update(currentTime)
-      // if (this.drops[i].position < 0) {
-      if (this.drops[i].position > PIXEL_COUNT) {
+      if (this.drops[i].position < 0) {
         this.restartDrop(i)
       }
     }
@@ -56,8 +52,7 @@ export default class Rain extends Effect {
   restartDrop(i) {
     const currentTime = Date.now()
     const height = this.random(3, 8);
-    // const startPosition = this.random(PIXEL_COUNT, PIXEL_COUNT * 2);
-    const startPosition = this.random(PIXEL_COUNT * -2, 0);
+    const startPosition = this.random(PIXEL_COUNT, PIXEL_COUNT * 2);
     const velocity = this.random(30, 60) * 1.0 / 1000;
     const color = this.generateColor()
 

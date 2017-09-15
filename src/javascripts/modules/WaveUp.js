@@ -3,16 +3,15 @@ import Effect from './Effect'
 const DURATION = 1000
 const HALF_DURATION = (DURATION / 2)
 
-export default class Wave extends Effect {
-  constructor(up = true) {
+export default class WaveUp extends Effect {
+  constructor() {
     super()
     this.startTime = Date.now()
-    this.color = [200, 255, 255]
-    this.up = up
+    this.color = [0, 200, 100]
   }
 
   cares(x, y) {
-    const localPercentage = this.up ? (PIXEL_COUNT - y) / PIXEL_COUNT : y / PIXEL_COUNT
+    const localPercentage = (PIXEL_COUNT - y) / PIXEL_COUNT
 
     if (this.inFirstHalf) {
       return localPercentage < this.percentagePassed
