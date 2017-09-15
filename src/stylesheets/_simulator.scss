@@ -1,0 +1,28 @@
+body {
+  background-color: #222;
+}
+
+.reeds {
+  display: flex;
+}
+
+.reed {
+  margin: 5px;
+  position: relative;
+
+  &::after {
+    background-color: #fff;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.reed__light {
+  width: 10px;
+  height: 15px;
+}

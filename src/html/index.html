@@ -1,11 +1,15 @@
-{#
-  Nunjucks Templating!
-  Homepage: https://mozilla.github.io/nunjucks/
-  Docs: https://mozilla.github.io/nunjucks/api.html
-#}
-
 {% extends 'layouts/application.html' %}
 
 {% block content %}
-  <h1 data-module="example">{{ message }}</h1>
+  {% set reedCount = 20 %}
+  {% set pixelCount = 30 %}
+  <div class="reeds" data-module="Simulator">
+    {% for x in range(0, reedCount) %}
+      <div class="reed">
+        {% for y in range(0, pixelCount) %}
+          <div class="reed__light"></div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+  </div>
 {% endblock %}

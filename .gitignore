@@ -1,7 +1,6 @@
 /tmp
 /node_modules
-/public/storage
-/public/assets
+/public
 /storage/*.key
 /vendor
 /.idea
