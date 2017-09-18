@@ -36,6 +36,9 @@ body {
 }
 
 .reed__light {
-  width: 10px;
+  color: transparent;
+  background-color: currentColor;
+  box-shadow: 0 0 10px;
   height: 15px;
+  width: 10px;
 }

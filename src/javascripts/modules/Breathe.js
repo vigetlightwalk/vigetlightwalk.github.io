@@ -8,6 +8,8 @@ export default class Breathe extends Effect {
     super()
     this.startTime = Date.now()
     this.color = [0, 200, 100]
+    // this.color = [30, 200, 255]
+    // this.color = [20, 20, 20]
   }
 
   cares(x, y) {

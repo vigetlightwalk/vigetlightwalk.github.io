@@ -68,10 +68,10 @@ export default class RainDown extends Effect {
   }
 
   generateColor() {
-    // return this.possibleColors[this.random(0, 11)]
+    return this.possibleColors[this.random(0, 11)]
     // return [this.random(0, 255), this.random(0, 255), this.random(0, 255)]
     // return [0, 255, this.random(0, 255)]
-    return [255, 0, this.random(0, 255)]
+    // return [255, 0, this.random(0, 255)]
   }
 
   possibleColors = [

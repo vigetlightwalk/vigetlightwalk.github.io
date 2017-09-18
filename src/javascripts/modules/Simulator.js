@@ -1,21 +1,26 @@
 import { REED_COUNT, PIXEL_COUNT } from './constants'
-import RainUp from './RainUp'
+import RainUp   from './RainUp'
 import RainDown from './RainDown'
-import WaveUp from './WaveUp'
+import WaveUp   from './WaveUp'
 import WaveDown from './WaveDown'
-import Breathe from './Breathe'
+import Breathe  from './Breathe'
+import Bubbles  from './Bubbles'
 
 export default class Simulator {
   constructor() {
     this.variables()
+    // this.backgroundEffect = new Breathe
+    // this.foregroundEffect = new RainDown
+    // this.backgroundEffect = new Bubbles
     this.backgroundEffect = new Breathe
-    this.foregroundEffect = new RainDown()
+    this.foregroundEffect = new RainUp
 
-    setInterval(() => {
-      this.backgroundEffect.update()
-      this.foregroundEffect.update()
-      this.setLedMatrix()
-    }, 1000/60)
+    this.draw()
+
+    setTimeout(() => {
+      document.querySelector('.reeds').classList.add('-is-off')
+    }, 4000)
+
   }
 
   variables() {
@@ -26,15 +31,20 @@ export default class Simulator {
     this.leds = []
   }
 
+  draw() {
+    requestAnimationFrame(() => this.draw())
+    this.backgroundEffect.update()
+    this.foregroundEffect.update()
+    this.setLedMatrix()
+  }
+
   loadLedMatrix() {
     for (let x = 0; x < REED_COUNT; x++) {
       for (let y = 0; y < PIXEL_COUNT; y++) {
         if (this.leds[x][y]) {
-          this[`reed${x}`][y].style.backgroundColor = `rgb(${this.leds[x][y][0]},${this.leds[x][y][1]},${this.leds[x][y][2]}`
-          this[`reed${x}`][y].style.boxShadow = `0 0 10px rgb(${this.leds[x][y][0]},${this.leds[x][y][1]},${this.leds[x][y][2]}`
+          this[`reed${x}`][y].style.color = `rgb(${this.leds[x][y][0]},${this.leds[x][y][1]},${this.leds[x][y][2]}`
         } else {
-          this[`reed${x}`][y].style.backgroundColor = 'transparent'
-          this[`reed${x}`][y].style.boxShadow = 'none'
+          this[`reed${x}`][y].style.color = 'transparent'
         }
       }
     }

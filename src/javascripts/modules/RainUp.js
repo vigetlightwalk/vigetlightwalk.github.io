@@ -72,6 +72,7 @@ export default class RainUp extends Effect {
     // return [this.random(0, 255), this.random(0, 255), this.random(0, 255)]
     // return [0, 255, this.random(0, 255)]
     return [255, 0, this.random(0, 255)]
+    // return [255, 100, 200]
   }
 
   possibleColors = [
