@@ -1,0 +1,30 @@
+h1, h2, h3, h4, h5, h6 {
+  font-size: 16px;
+  margin: 0;
+}
+
+@mixin heading($color, $line-height: 1.25, $letter-spacing: normal, $font-weight: 500) {
+  @if $color == '' {
+    $color: color(darkMineShaft);
+  }
+
+  color: $color;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+}
+
+@mixin heading--small($color: '') {
+  @include heading($color);
+  font-size: 16px;
+}
+
+@mixin heading--medium($color: '') {
+  @include heading($color);
+  font-size: 21px;
+}
+
+@mixin heading--large($color: '') {
+  @include heading($color, $font-weight: 800, $letter-spacing: 0.03em);
+  font-size: 26px;
+}

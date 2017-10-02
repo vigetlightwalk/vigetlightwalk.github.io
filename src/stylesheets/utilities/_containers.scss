@@ -1,0 +1,30 @@
+.container-center {
+  text-align: center;
+}
+
+.container {
+  margin: -1px auto;
+  max-width: 1400px;
+  padding: 1px units(2);
+
+  &.-xx-large {
+    max-width: 1800px;
+  }
+
+  &.-x-large {
+    max-width: 1400px;
+  }
+
+  &.-large {
+    max-width: 1200px;
+  }
+
+  &.-medium {
+    max-width: 1100px;
+  }
+
+  &.-small {
+    max-width: 650px;
+  }
+}
+

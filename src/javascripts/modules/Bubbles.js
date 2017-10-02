@@ -43,10 +43,12 @@ class Bubble extends Effect {
 export default class Bubbles extends InteractiveEffect {
   constructor() {
     super()
+    this.name = 'Bubbles'
+
     this.bubbles = []
     this.color = [20, 100, 250]
     this.startTime = Date.now()
-    this.movementOn(10, this.startTime)
+    this.movementOn(6, this.startTime)
 
     // this.movementOn(0, this.startTime)
     // setTimeout(() => {
@@ -83,24 +85,24 @@ export default class Bubbles extends InteractiveEffect {
 
   colorFor(x, y) {
     // return this.color
-    // return this.generateColor()
+    return this.generateColor()
     // return [
     //   this.color[0],
     //   this.color[1],
     //   Math.floor(this.color[2] * this.bubbles[0].intensity)
     // ]
-    return [
-      Math.floor(this.color[0] * this.bubbles[0].intensity),
-      Math.floor(this.color[1] * this.bubbles[0].intensity),
-      Math.floor(this.color[2] * this.bubbles[0].intensity)
-    ]
+    // return [
+    //   Math.floor(this.color[0] * this.bubbles[0].intensity),
+    //   Math.floor(this.color[1] * this.bubbles[0].intensity),
+    //   Math.floor(this.color[2] * this.bubbles[0].intensity)
+    // ]
   }
 
   generateColor() {
     // return this.possibleColors[this.random(0, 11)]
     // return [this.random(0, 255), this.random(0, 255), this.random(0, 255)]
     // return [0, 255, this.random(0, 255)]
-    // return [255, 0, this.random(0, 255)]
+    return [0, 255, this.random(0, 255)]
     // return [255, 100, 200]
   }
 

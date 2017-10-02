@@ -27,6 +27,8 @@ class Drop {
 export default class RainUp extends Effect {
   constructor() {
     super()
+    this.name = 'Reverse Rain'
+
     const currentTime = Date.now()
     this.drops = []
 

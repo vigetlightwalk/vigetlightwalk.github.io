@@ -6,8 +6,10 @@ const HALF_DURATION = (DURATION / 2)
 export default class WaveUp extends Effect {
   constructor() {
     super()
+    this.name = 'Wave Up'
+
     this.startTime = Date.now()
-    this.color = [0, 200, 100]
+    this.color = [74,164,252]
   }
 
   cares(x, y) {

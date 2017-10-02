@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ title }}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include "shared/app-icons.html" %}
@@ -13,6 +14,7 @@
     {% block content %}{% endblock %}
     {% block javascript %}
       <script src="javascripts/app.js"></script>
+      <script src="vendor/iframeResizer.contentWindow.min.js"></script>
     {% endblock %}
   </body>
 </html>

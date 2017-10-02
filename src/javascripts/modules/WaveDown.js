@@ -6,8 +6,10 @@ const HALF_DURATION = (DURATION / 2)
 export default class WaveDown extends Effect {
   constructor() {
     super()
+    this.name = 'Wave Down'
+
     this.startTime = Date.now()
-    this.color = [0, 200, 100]
+    this.color = [253,150,74]
   }
 
   cares(x, y) {

@@ -1,5 +1,15 @@
 export default class Effect {
-  constructor() {}
+  constructor() {
+    this.name = ''
+  }
+
+  update() {
+    return false
+  }
+
+  cares(x, y) {
+    return false
+  }
 
   random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min

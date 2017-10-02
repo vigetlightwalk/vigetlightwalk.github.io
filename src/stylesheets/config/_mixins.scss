@@ -1,0 +1,90 @@
+@mixin hover {
+  &:hover,
+  html[data-whatinput="keyboard"] &:focus {
+    @content;
+  }
+}
+
+@mixin keyboardFocus {
+  html[data-whatinput="keyboard"] &:focus {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &:input-placeholder {
+    @content;
+  }
+}
+
+@mixin full($center: false) {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  @if $center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@mixin pseudo($display: block, $position: absolute, $full: false) {
+  content: '';
+  display: $display;
+  position: $position;
+
+  @if $full {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@mixin inviz {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin viz {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin transitionViz($timing: timing()) {
+  transition: opacity $timing, visibility $timing;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin sr-only {
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  display: block;
+  position: absolute !important;
+}

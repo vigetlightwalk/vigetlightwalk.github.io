@@ -1,0 +1,72 @@
+$REED_COUNT: 12;
+
+.reeds {
+  align-items: flex-start;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+
+  @media (min-width: 740px) {
+    height: 688px;
+  }
+
+  @include bp(xlarge) {
+    height: 802px;
+  }
+}
+
+.reed {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: units(1) units(0.5);
+  position: relative;
+
+  @include bp(large) {
+    margin: units(1);
+  }
+
+  @include bp(xlarge) {
+    margin: units(1) units(1.5);
+  }
+
+  $angles: (10, -6, 0, -2, -4, 0, 5, 0, 0, 8, 5, -5);
+  @for $i from 1 through length($angles) {
+    $angle: nth($angles, $i);
+    &:nth-child(#{$i}) {
+      transform: rotate(#{$angle}deg) translateZ(0);
+    }
+  }
+
+  $offsets: (20, 30, 10, 5, 15, 5, 0, 20, 11, 0, 30, 22);
+  @for $i from 1 through length($offsets) {
+    $offset: nth($offsets, $i);
+    &:nth-child(#{$i}) {
+      margin-top: $offset * 1px;
+    }
+  }
+}
+
+.reed__light {
+  color: transparent;
+  background-color: currentColor;
+  box-shadow: 0 0 10px;
+  height: 10px;
+  width: 14px;
+
+  @media (min-width: 440px) {
+    width: 20px;
+  }
+
+  @media (min-width: 740px) {
+    height: 30px;
+    width: 20px;
+  }
+
+  @include bp(large) {
+    width: 25px;
+  }
+
+  @include bp(xlarge) {
+    width: 30px;
+  }
+}

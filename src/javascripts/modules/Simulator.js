@@ -1,41 +1,49 @@
 import { REED_COUNT, PIXEL_COUNT } from './constants'
-import RainUp   from './RainUp'
-import RainDown from './RainDown'
-import WaveUp   from './WaveUp'
-import WaveDown from './WaveDown'
-import Breathe  from './Breathe'
-import Bubbles  from './Bubbles'
 
 export default class Simulator {
   constructor() {
     this.variables()
-    // this.backgroundEffect = new Breathe
-    // this.foregroundEffect = new RainDown
-    // this.backgroundEffect = new Bubbles
-    this.backgroundEffect = new Breathe
-    this.foregroundEffect = new RainUp
-
-    this.draw()
-
-    setTimeout(() => {
-      document.querySelector('.reeds').classList.add('-is-off')
-    }, 4000)
-
   }
 
   variables() {
+    // Elements
     this.reeds = document.querySelectorAll('.reed')
     this.reeds.forEach((reed, x) => {
       this[`reed${x}`] = reed.querySelectorAll('.reed__light')
     })
+    this.countdown = document.getElementById('countdown').querySelector('span')
+
+    // Matrix
     this.leds = []
+
+    // Custom events
+    this.endEventName = 'simulationEnd'
+    this.simulationEnd = new Event(this.endEventName)
   }
 
-  draw() {
-    requestAnimationFrame(() => this.draw())
-    this.backgroundEffect.update()
-    this.foregroundEffect.update()
-    this.setLedMatrix()
+  getName() {
+    const names = []
+    if (this.foregroundEffect.name) names.push(this.foregroundEffect.name)
+    if (this.backgroundEffect.name) names.push(this.backgroundEffect.name)
+    return names.join(', ')
+  }
+
+  draw(endTime) {
+    const currentTime = Date.now()
+    if (currentTime < endTime) {
+      const timeLeft = Math.ceil((endTime - currentTime)/1000)
+      this.countdown.innerHTML = timeLeft < 10 ? '0' + timeLeft : timeLeft
+
+      requestAnimationFrame(() => this.draw(endTime))
+      this.backgroundEffect.update()
+      this.foregroundEffect.update()
+      this.setLedMatrix()
+    } else {
+      this.countdown.innerHTML = '00'
+      this.clearLedMatrix()
+      this.loadLedMatrix()
+      document.dispatchEvent(this.simulationEnd)
+    }
   }
 
   loadLedMatrix() {

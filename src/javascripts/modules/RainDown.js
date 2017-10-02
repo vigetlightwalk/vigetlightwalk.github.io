@@ -27,6 +27,8 @@ class Drop {
 export default class RainDown extends Effect {
   constructor() {
     super()
+    this.name = 'Rainbow Rain'
+
     const currentTime = Date.now()
     this.drops = []
 
@@ -75,17 +77,14 @@ export default class RainDown extends Effect {
   }
 
   possibleColors = [
-    [255, 0,   0],
-    [255, 120, 0],
-    [255, 255, 0],
-    [120, 255, 0],
-    [0,   255, 0],
-    [0,   255, 120],
-    [0,   255, 255],
-    [0,   120, 255],
-    [0,   0,   255],
-    [120, 0,   255],
-    [255, 0,   255],
-    [255, 0,   120]
+    [252,67,79],
+    [253,150,74],
+    [255,248,83],
+    [94,242,91],
+    [79,253,156],
+    [162,253,83],
+    [74,164,252],
+    [66,74,251],
+    [146,74,251]
   ]
 }

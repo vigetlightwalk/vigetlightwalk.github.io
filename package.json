@@ -6,6 +6,8 @@
   "author": "Viget",
   "license": "MIT",
   "dependencies": {
-    "blendid": "^4.2.0"
+    "blendid": "^4.2.0",
+    "iframe-resizer": "^3.5.14",
+    "what-input": "^5.0.1"
   }
 }

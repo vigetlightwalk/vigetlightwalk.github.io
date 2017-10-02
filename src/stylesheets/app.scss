@@ -1,3 +1,31 @@
-@import "base/typography";
+// Config
+@import 'config/breakpoints';
+@import 'config/colors';
+@import 'config/fonts';
+@import 'config/functions';
+@import 'config/mixins';
+@import 'config/timings';
+@import 'config/ui';
 
-@import "simulator";
+// Base styles
+@import 'core/body';
+@import 'core/box-sizing';
+@import 'core/buttons';
+@import 'core/figures';
+@import 'core/inputs';
+@import 'core/links';
+@import 'core/lists';
+@import 'core/text/body';
+@import 'core/text/headings';
+@import 'core/text/labels';
+
+// Utilities
+@import 'utilities/animations';
+@import 'utilities/containers';
+@import 'utilities/screenreader';
+
+// Components
+@import "components/controls";
+@import "components/page";
+@import "components/reeds";
+

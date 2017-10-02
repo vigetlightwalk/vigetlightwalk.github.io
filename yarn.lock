@@ -2996,6 +2996,10 @@ ieee754@^1.1.4:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.8.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
 
+iframe-resizer@^3.5.14:
+  version "3.5.14"
+  resolved "https://registry.yarnpkg.com/iframe-resizer/-/iframe-resizer-3.5.14.tgz#db770e8f1cf63d2c77d10d0e18edc2524bf36fb4"
+
 immutable@3.8.1, immutable@^3.7.6:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
@@ -6102,6 +6106,10 @@ weinre@^2.0.0-pre-I0Z7U9OV:
     express "2.5.x"
     nopt "3.0.x"
     underscore "1.7.x"
+
+what-input@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/what-input/-/what-input-5.0.1.tgz#1513641f91414b6f839259d04943afb2c0439c4a"
 
 whet.extend@~0.9.9:
   version "0.9.9"

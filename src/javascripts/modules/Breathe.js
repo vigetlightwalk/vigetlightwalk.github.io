@@ -6,8 +6,10 @@ const HALF_DURATION = (DURATION / 2)
 export default class Breathe extends Effect {
   constructor(up = true) {
     super()
+    this.name = 'Breathe'
+
     this.startTime = Date.now()
-    this.color = [0, 200, 100]
+    this.color = [74,164,252]
     // this.color = [30, 200, 255]
     // this.color = [20, 20, 20]
   }
@@ -18,9 +20,15 @@ export default class Breathe extends Effect {
 
   colorFor(x, y) {
     return [
-      Math.floor(this.color[0] * this.intensity),
-      Math.floor(this.color[1] * this.intensity),
-      Math.floor(this.color[2] * this.intensity)
+      // Fades to black
+      // Math.floor(this.color[0] * this.intensity),
+      // Math.floor(this.color[1] * this.intensity),
+      // Math.floor(this.color[2] * this.intensity)
+
+      // Fades to white
+      255 - Math.floor((255 - this.color[0]) * this.intensity),
+      255 - Math.floor((255 - this.color[1]) * this.intensity),
+      255 - Math.floor((255 - this.color[2]) * this.intensity)
     ]
   }
 
